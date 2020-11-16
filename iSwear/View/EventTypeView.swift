@@ -43,14 +43,6 @@ struct EventTypeView: View {
                 Button("Close") {
                     self.isPresenting = false
                 }
-                /*
-                NavigationLink(
-                    destination: EventTypeView(parentIsActive: self.$isActive),
-                    isActive: self.$isActive
-                ) {
-                    Text("Create")
-                }.isDetailLink(false)
-                */
             )
         }
     }

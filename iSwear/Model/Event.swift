@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Event: Codable, Identifiable, Hashable {
-    let id: Int
-    let name: String
-}
+//struct Event: Codable, Identifiable, Hashable {
+//    let id: Int
+//    let name: String
+//}
 
 struct Template: Codable, Identifiable, Hashable {
     let id: Int
@@ -24,23 +24,31 @@ struct Annotation {
     let image: Data
 }
 
-struct Rule {
-    let startDate: Date
-    let endDate: Date
+struct Event {
+    var startDate = Date()
+    var endDate = Date()
     /// Seconds
-    let interval: Double
-    let title: String
-    let description: String
+    var interval: Double = 60 * 60 * 24
+    var title = ""
+    var description = ""
     /// How many times you allow yourself to fail
-    let toleranceCount: Int
+    var toleranceCo = 0
 
     /// Blame your failed attempt with an `Annotation`
-    let blame: Annotation
+    var blame: Annotation?
     /// Praise your successful attempt with an `Annotation`
-    let priase: Annotation
+    var priase: Annotation?
 
     var count: Int {
         return Int(endDate.timeIntervalSince(startDate) / interval)
+    }
+}
+
+/// Event+UI
+extension Event {
+    var countText: String {
+        get { "Last for \(count) day(s)" }
+//        set(s) { assertionFailure() }
     }
 }
 

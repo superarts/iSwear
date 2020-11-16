@@ -17,6 +17,10 @@
 		B33304AF254F4DA800D310C1 /* iSwearUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33304AE254F4DA800D310C1 /* iSwearUITests.swift */; };
 		B33304BD254F5D9C00D310C1 /* NewEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33304BC254F5D9C00D310C1 /* NewEventView.swift */; };
 		B33304C0254F8B5A00D310C1 /* EventTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33304BF254F8B5A00D310C1 /* EventTabView.swift */; };
+		B34B865E2561F4F700DD481C /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B865D2561F4F700DD481C /* TextFieldCell.swift */; };
+		B34B86612561F8B300DD481C /* HorizontalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B86602561F8B300DD481C /* HorizontalLine.swift */; };
+		B34B86632562042800DD481C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B86622562042800DD481C /* DatePickerCell.swift */; };
+		B34B866625620D0A00DD481C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B866525620D0A00DD481C /* DatePickerView.swift */; };
 		B35CC3472561A50E000FC9F2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CC3462561A50D000FC9F2 /* Event.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +58,10 @@
 		B33304B0254F4DA800D310C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B33304BC254F5D9C00D310C1 /* NewEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventView.swift; sourceTree = "<group>"; };
 		B33304BF254F8B5A00D310C1 /* EventTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTabView.swift; sourceTree = "<group>"; };
+		B34B865D2561F4F700DD481C /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		B34B86602561F8B300DD481C /* HorizontalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLine.swift; sourceTree = "<group>"; };
+		B34B86622562042800DD481C /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		B34B866525620D0A00DD481C /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		B35CC3462561A50D000FC9F2 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,11 +154,39 @@
 		B33304BE254F5DA300D310C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B34B866425620C8C00DD481C /* Model */,
+				B34B865F2561F8A100DD481C /* Shape */,
+				B34B865A2561F45A00DD481C /* Cell */,
 				B33304BF254F8B5A00D310C1 /* EventTabView.swift */,
 				B3330490254F4DA500D310C1 /* EventTypeView.swift */,
 				B33304BC254F5D9C00D310C1 /* NewEventView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B34B865A2561F45A00DD481C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B34B865D2561F4F700DD481C /* TextFieldCell.swift */,
+				B34B86622562042800DD481C /* DatePickerCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B34B865F2561F8A100DD481C /* Shape */ = {
+			isa = PBXGroup;
+			children = (
+				B34B86602561F8B300DD481C /* HorizontalLine.swift */,
+			);
+			path = Shape;
+			sourceTree = "<group>";
+		};
+		B34B866425620C8C00DD481C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B34B866525620D0A00DD481C /* DatePickerView.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B35CC3452561A485000FC9F2 /* Model */ = {
@@ -293,10 +329,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B33304BD254F5D9C00D310C1 /* NewEventView.swift in Sources */,
+				B34B86612561F8B300DD481C /* HorizontalLine.swift in Sources */,
 				B333048D254F4DA500D310C1 /* AppDelegate.swift in Sources */,
 				B333048F254F4DA500D310C1 /* SceneDelegate.swift in Sources */,
 				B3330491254F4DA500D310C1 /* EventTypeView.swift in Sources */,
+				B34B86632562042800DD481C /* DatePickerCell.swift in Sources */,
+				B34B866625620D0A00DD481C /* DatePickerView.swift in Sources */,
 				B35CC3472561A50E000FC9F2 /* Event.swift in Sources */,
+				B34B865E2561F4F700DD481C /* TextFieldCell.swift in Sources */,
 				B33304C0254F8B5A00D310C1 /* EventTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

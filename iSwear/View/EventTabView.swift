@@ -10,27 +10,27 @@ import SwiftUI
 
 struct EventTabView: View {
     //@State var isActive: Bool = false
-    @Environment(\.presentationMode) var presentation
     @EnvironmentObject var eventStore: EventStore
+    @Environment(\.presentationMode) var presentation
     @State var presentingNewEvent = false
 
     var body: some View {
         NavigationView {
             TabView {
-                List {
-                    ForEach(eventStore.events, id: \.self) { event in
-                        Button (action: {
-                            print(self.eventStore.events)
-                            print(event)
-                            self.eventStore.events.removeAll { $0 == event }
-                        } ) {
-                            Text(event.name)
-                        }
-                    }
-                }.tabItem {
-                        Image(systemName: "phone.fill")
-                        Text("Current")
-                }
+//                List {
+//                    ForEach(eventStore.events, id: \.self) { event in
+//                        Button (action: {
+//                            print(self.eventStore.events)
+//                            print(event)
+//                            self.eventStore.events.removeAll { $0 == event }
+//                        } ) {
+//                            Text(event.name)
+//                        }
+//                    }
+//                }.tabItem {
+//                    Image(systemName: "phone.fill")
+//                    Text("Current")
+//                }
                 Text("Successful challenges")
                     .tabItem {
                         Image(systemName: "tv.fill")
@@ -49,14 +49,6 @@ struct EventTabView: View {
                         isPresenting: self.$presentingNewEvent
                     ).environmentObject(self.eventStore)
                 }
-                /*
-                NavigationLink(
-                    destination: EventTypeView(parentIsActive: self.$isActive),
-                    isActive: self.$isActive
-                ) {
-                    Text("Create")
-                }.isDetailLink(false)
-                */
             ).navigationBarTitle(
                 Text("Current"), displayMode: .large
             )
