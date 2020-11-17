@@ -17,20 +17,29 @@ struct EventTabView: View {
     var body: some View {
         NavigationView {
             TabView {
-//                List {
-//                    ForEach(eventStore.events, id: \.self) { event in
+                List {
+//                    eventStore.events.forEach { event in
 //                        Button (action: {
 //                            print(self.eventStore.events)
 //                            print(event)
 //                            self.eventStore.events.removeAll { $0 == event }
 //                        } ) {
-//                            Text(event.name)
+//                            Text(event.title)
 //                        }
 //                    }
-//                }.tabItem {
-//                    Image(systemName: "phone.fill")
-//                    Text("Current")
-//                }
+                    ForEach(eventStore.events, id: \.self) { event in
+                        Button (action: {
+//                            print(self.eventStore.events)
+//                            print(event)
+                            self.eventStore.events.removeAll { $0 == event }
+                        } ) {
+                            Text(event.title)
+                        }
+                    }
+                }.tabItem {
+                    Image(systemName: "phone.fill")
+                    Text("Current")
+                }
                 Text("Successful challenges")
                     .tabItem {
                         Image(systemName: "tv.fill")

@@ -23,6 +23,15 @@ struct NewEventView: View {
 //    ]
     @State private var selection: Template?
     @State var action: Int?
+    //@State var footerText: String
+
+    func footerText() -> String {
+        event.countText
+    }
+
+    func footerColor() -> Color {
+        event.count > 0 ? .secondary : .red
+    }
 
     var body: some View {
 //        List(selection: $selection) {
@@ -37,7 +46,12 @@ struct NewEventView: View {
 
 //            DatePickerCell(title: "Starts from")
 //            DatePickerCell(title: "Until")
-            Section(header: Text("DURATION"), footer: Text(event.countText)) {
+            Section(
+                header: Text("DURATION"),
+                footer: Text(footerText()).foregroundColor(footerColor())
+                //footer: Text(event.countText) //.foregroundColor(self.footerColor())
+                //footer: Text(event.countText).foregroundColor(self.footerColor())
+            ) {
                 DatePicker("Starts from", selection: $event.startDate)
                 DatePicker("Until", selection: $event.endDate)
             }
@@ -58,8 +72,8 @@ struct NewEventView: View {
     }
 }
 
-struct NewEventView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewEventView(isPresenting: .constant(true))
-    }
-}
+//struct NewEventView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewEventView(isPresenting: .constant(true))
+//    }
+//}
