@@ -13,30 +13,30 @@ struct EventTypeView: View {
     @EnvironmentObject var eventStore: EventStore
     //@Binding var parentIsActive: Bool
 
-    @State private var templates: [Template] = [
-        Template(id: 0, name: "Daily small achievement"),
-        Template(id: 1, name: "Weekly huge achievement"),
-        Template(id: 2, name: "Custom"),
-    ]
+    private let templates = TemplateStore().templates
     @State private var selection: Template?
-    @State var action: Int?
+//    @State var action: Int?
 
     var body: some View {
         NavigationView {
             List(selection: $selection) {
                 ForEach(templates, id: \.self) { template in
+//                    Text(template.name)
                     NavigationLink(
                         destination: NewEventView(
+                            event: template.event,
                             isPresenting: self.$isPresenting
-                        ).environmentObject(self.eventStore),
-                        tag: template.id,
-                        selection: self.$action
+                        ).environmentObject(self.eventStore)
+//                        tag: 0,
+//                        selection: self.$action
                     ) {
                         VStack {
                             Text(template.name)
                         }
                     }.isDetailLink(false)
                 }
+            }.onAppear {
+                //UITableView.appearance().separatorColor = .separator
             }.navigationBarTitle(
                 "Choose a template"
             ).navigationBarItems(leading:

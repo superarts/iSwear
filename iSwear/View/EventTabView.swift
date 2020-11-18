@@ -28,14 +28,17 @@ struct EventTabView: View {
 //                        }
 //                    }
                     ForEach(eventStore.events, id: \.self) { event in
-                        Button (action: {
-//                            print(self.eventStore.events)
-//                            print(event)
-                            self.eventStore.events.removeAll { $0 == event }
-                        } ) {
-                            Text(event.title)
-                        }
+                        EventCell(event: event)
+//                        Button (action: {
+////                            print(self.eventStore.events)
+////                            print(event)
+//                            self.eventStore.events.removeAll { $0 == event }
+//                        } ) {
+//                            Text(event.title)
+//                        }
                     }
+                }.onAppear {
+                    //UITableView.appearance().separatorColor = .clear
                 }.tabItem {
                     Image(systemName: "phone.fill")
                     Text("Current")
