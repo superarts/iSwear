@@ -22,6 +22,7 @@
 		B34B86632562042800DD481C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B86622562042800DD481C /* DatePickerCell.swift */; };
 		B34B866625620D0A00DD481C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B866525620D0A00DD481C /* DatePickerView.swift */; };
 		B34B86682564053A00DD481C /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B86672564053A00DD481C /* EventCell.swift */; };
+		B34B866A2565495900DD481C /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B86692565495900DD481C /* Template.swift */; };
 		B35CC3472561A50E000FC9F2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CC3462561A50D000FC9F2 /* Event.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		B34B86622562042800DD481C /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		B34B866525620D0A00DD481C /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		B34B86672564053A00DD481C /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		B34B86692565495900DD481C /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
 		B35CC3462561A50D000FC9F2 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				B35CC3462561A50D000FC9F2 /* Event.swift */,
+				B34B86692565495900DD481C /* Template.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				B34B86682564053A00DD481C /* EventCell.swift in Sources */,
 				B34B866625620D0A00DD481C /* DatePickerView.swift in Sources */,
 				B35CC3472561A50E000FC9F2 /* Event.swift in Sources */,
+				B34B866A2565495900DD481C /* Template.swift in Sources */,
 				B34B865E2561F4F700DD481C /* TextFieldCell.swift in Sources */,
 				B33304C0254F8B5A00D310C1 /* EventTabView.swift in Sources */,
 			);

@@ -18,24 +18,8 @@ struct EventTabView: View {
         NavigationView {
             TabView {
                 List {
-//                    eventStore.events.forEach { event in
-//                        Button (action: {
-//                            print(self.eventStore.events)
-//                            print(event)
-//                            self.eventStore.events.removeAll { $0 == event }
-//                        } ) {
-//                            Text(event.title)
-//                        }
-//                    }
                     ForEach(eventStore.events, id: \.self) { event in
                         EventCell(event: event)
-//                        Button (action: {
-////                            print(self.eventStore.events)
-////                            print(event)
-//                            self.eventStore.events.removeAll { $0 == event }
-//                        } ) {
-//                            Text(event.title)
-//                        }
                     }
                 }.onAppear {
                     //UITableView.appearance().separatorColor = .clear

@@ -11,24 +11,19 @@ import SwiftUI
 struct EventTypeView: View {
     @Binding var isPresenting: Bool
     @EnvironmentObject var eventStore: EventStore
-    //@Binding var parentIsActive: Bool
 
     private let templates = TemplateStore().templates
     @State private var selection: Template?
-//    @State var action: Int?
 
     var body: some View {
         NavigationView {
             List(selection: $selection) {
                 ForEach(templates, id: \.self) { template in
-//                    Text(template.name)
                     NavigationLink(
                         destination: NewEventView(
                             event: template.event,
                             isPresenting: self.$isPresenting
                         ).environmentObject(self.eventStore)
-//                        tag: 0,
-//                        selection: self.$action
                     ) {
                         VStack {
                             Text(template.name)
