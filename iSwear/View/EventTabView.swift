@@ -18,8 +18,14 @@ struct EventTabView: View {
         NavigationView {
             TabView {
                 List {
-                    ForEach(eventStore.events, id: \.self) { event in
-                        EventCell(event: event)
+                    ForEach(eventStore.ongoingEvents(), id: \.self) { event in
+                        NavigationLink(
+                            destination: EditEventView(
+                                event: event
+                            ).environmentObject(self.eventStore)
+                        ) {
+                            EventCell(event: event)
+                        }.isDetailLink(false)
                     }
                 }.onAppear {
                     //UITableView.appearance().separatorColor = .clear
@@ -27,15 +33,39 @@ struct EventTabView: View {
                     Image(systemName: "phone.fill")
                     Text("Current")
                 }
-                Text("Successful challenges")
-                    .tabItem {
-                        Image(systemName: "tv.fill")
-                        Text("Finished")
+
+                List {
+                    ForEach(eventStore.successEvents(), id: \.self) { event in
+                        NavigationLink(
+                            destination: EditEventView(
+                                event: event
+                            ).environmentObject(self.eventStore)
+                        ) {
+                            EventCell(event: event)
+                        }.isDetailLink(false)
+                    }
+                }.onAppear {
+                    //UITableView.appearance().separatorColor = .clear
+                }.tabItem {
+                    Image(systemName: "star.fill")
+                    Text("Finished")
                 }
-                Text("Failed challenges")
-                    .tabItem {
-                        Image(systemName: "star.fill")
-                        Text("Failed")
+
+                List {
+                    ForEach(eventStore.failureEvents(), id: \.self) { event in
+                        NavigationLink(
+                            destination: EditEventView(
+                                event: event
+                            ).environmentObject(self.eventStore)
+                        ) {
+                            EventCell(event: event)
+                        }.isDetailLink(false)
+                    }
+                }.onAppear {
+                    //UITableView.appearance().separatorColor = .clear
+                }.tabItem {
+                    Image(systemName: "tv.fill")
+                    Text("Failed")
                 }
             }.navigationBarItems(trailing:
                 Button("Create") {

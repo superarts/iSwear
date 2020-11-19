@@ -23,6 +23,8 @@
 		B34B866625620D0A00DD481C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B866525620D0A00DD481C /* DatePickerView.swift */; };
 		B34B86682564053A00DD481C /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B86672564053A00DD481C /* EventCell.swift */; };
 		B34B866A2565495900DD481C /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B86692565495900DD481C /* Template.swift */; };
+		B34B866C2565F39000DD481C /* EditEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B866B2565F39000DD481C /* EditEventView.swift */; };
+		B34B866E2565F56A00DD481C /* EventForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B866D2565F56A00DD481C /* EventForm.swift */; };
 		B35CC3472561A50E000FC9F2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CC3462561A50D000FC9F2 /* Event.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		B34B866525620D0A00DD481C /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		B34B86672564053A00DD481C /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		B34B86692565495900DD481C /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
+		B34B866B2565F39000DD481C /* EditEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventView.swift; sourceTree = "<group>"; };
+		B34B866D2565F56A00DD481C /* EventForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventForm.swift; sourceTree = "<group>"; };
 		B35CC3462561A50D000FC9F2 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,7 +167,9 @@
 				B34B865A2561F45A00DD481C /* Cell */,
 				B33304BF254F8B5A00D310C1 /* EventTabView.swift */,
 				B3330490254F4DA500D310C1 /* EventTypeView.swift */,
+				B34B866D2565F56A00DD481C /* EventForm.swift */,
 				B33304BC254F5D9C00D310C1 /* NewEventView.swift */,
+				B34B866B2565F39000DD481C /* EditEventView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -338,8 +344,10 @@
 				B34B86612561F8B300DD481C /* HorizontalLine.swift in Sources */,
 				B333048D254F4DA500D310C1 /* AppDelegate.swift in Sources */,
 				B333048F254F4DA500D310C1 /* SceneDelegate.swift in Sources */,
+				B34B866E2565F56A00DD481C /* EventForm.swift in Sources */,
 				B3330491254F4DA500D310C1 /* EventTypeView.swift in Sources */,
 				B34B86632562042800DD481C /* DatePickerCell.swift in Sources */,
+				B34B866C2565F39000DD481C /* EditEventView.swift in Sources */,
 				B34B86682564053A00DD481C /* EventCell.swift in Sources */,
 				B34B866625620D0A00DD481C /* DatePickerView.swift in Sources */,
 				B35CC3472561A50E000FC9F2 /* Event.swift in Sources */,

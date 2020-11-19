@@ -29,6 +29,9 @@ struct Event: Identifiable, Codable {
     /// Seconds
     var interval: Double = 60 * 60 * 24
 
+    var isCompleted = false
+    var failureCount = 0
+
     /// How many times you allow yourself to fail
     var toleranceCount = 0
 
@@ -60,10 +63,14 @@ enum FileError: Error {
     case invalidURL
 }
 
+enum ArrayError: Error {
+    case objectNotFound
+}
+
 class EventStore: ObservableObject {
     @Published var events: [Event]
 
-    func fileURL() throws -> URL {
+    private func fileURL() throws -> URL {
         guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             throw FileError.invalidURL
         }
@@ -81,6 +88,42 @@ class EventStore: ObservableObject {
         let url = try fileURL()
         let data = try Data(contentsOf: url)
         events = try JSONDecoder().decode([Event].self, from: data)
+    }
+
+    func update(event: Event) throws {
+        let i = try index(event: event)
+        events[i] = event
+    }
+
+    func remove(event: Event) throws {
+        let i = try index(event: event)
+        events.remove(at: i)
+    }
+
+    func ongoingEvents() -> [Event] {
+        events.filter { !$0.isCompleted }
+    }
+
+    func successEvents() -> [Event] {
+        events.filter { $0.isCompleted && $0.failureCount <= $0.toleranceCount }
+    }
+
+    func failureEvents() -> [Event] {
+        events.filter { $0.isCompleted && $0.failureCount > $0.toleranceCount }
+    }
+
+    private func index(event: Event) throws -> Int {
+        var i: Int?
+        events.forEach { e in
+            if e.id == event.id {
+                i = events.firstIndex(of: e)
+            }
+        }
+        guard let index = i else {
+            print("index not found")
+            throw ArrayError.objectNotFound
+        }
+        return index
     }
 
     init() {
