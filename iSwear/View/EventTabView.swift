@@ -9,59 +9,66 @@
 import SwiftUI
 
 struct EventTabView: View {
-    //@State var isActive: Bool = false
-    @EnvironmentObject var eventStore: EventStore
-    @Environment(\.presentationMode) var presentation
-    @State var presentingNewEvent = false
+    @EnvironmentObject private var eventStore: EventStore
+    @Environment(\.presentationMode) private var presentation
+    @State private var presentingNewEvent = false
+//    @State private var selection = 0
+
+    private func tab(events: [Event], emptyString: String) -> AnyView {
+        if events.count == 0 {
+            return AnyView(Text(emptyString))
+        } else {
+            return AnyView(List {
+                ForEach(events, id: \.self) { event in
+                    NavigationLink(
+                        destination: EditEventView(
+                            event: event
+                        ).environmentObject(self.eventStore)
+                    ) {
+                        EventCell(event: event)
+                    }.isDetailLink(false)
+                }
+            })
+        }
+    }
+
+//    private func title(selection: Int) -> String {
+//        switch selection {
+//        case 0: return "Current"
+//        case 1: return "Finished"
+//        case 2: return "Failed"
+//        default: return "WARNING"
+//        }
+//    }
 
     var body: some View {
         NavigationView {
+//            TabView(selection: $selection) { }
             TabView {
-                List {
-                    ForEach(eventStore.ongoingEvents(), id: \.self) { event in
-                        NavigationLink(
-                            destination: EditEventView(
-                                event: event
-                            ).environmentObject(self.eventStore)
-                        ) {
-                            EventCell(event: event)
-                        }.isDetailLink(false)
-                    }
-                }.onAppear {
+                tab(
+                    events: eventStore.ongoingEvents(),
+                    emptyString: "Tap \"Create\" to start"
+                ).onAppear {
                     //UITableView.appearance().separatorColor = .clear
                 }.tabItem {
                     Image(systemName: "phone.fill")
                     Text("Current")
                 }
 
-                List {
-                    ForEach(eventStore.successEvents(), id: \.self) { event in
-                        NavigationLink(
-                            destination: EditEventView(
-                                event: event
-                            ).environmentObject(self.eventStore)
-                        ) {
-                            EventCell(event: event)
-                        }.isDetailLink(false)
-                    }
-                }.onAppear {
+                tab(
+                    events: eventStore.successEvents(),
+                    emptyString: "You have no completed events yet.\nKeep going!"
+                ).onAppear {
                     //UITableView.appearance().separatorColor = .clear
                 }.tabItem {
                     Image(systemName: "star.fill")
                     Text("Finished")
                 }
 
-                List {
-                    ForEach(eventStore.failureEvents(), id: \.self) { event in
-                        NavigationLink(
-                            destination: EditEventView(
-                                event: event
-                            ).environmentObject(self.eventStore)
-                        ) {
-                            EventCell(event: event)
-                        }.isDetailLink(false)
-                    }
-                }.onAppear {
+                tab(
+                    events: eventStore.failureEvents(),
+                    emptyString: "You have no failed events. Good job!"
+                ).onAppear {
                     //UITableView.appearance().separatorColor = .clear
                 }.tabItem {
                     Image(systemName: "tv.fill")
@@ -76,7 +83,7 @@ struct EventTabView: View {
                     ).environmentObject(self.eventStore)
                 }
             ).navigationBarTitle(
-                Text("Current"), displayMode: .large
+                Text("Events"), displayMode: .large
             )
         }
     }
