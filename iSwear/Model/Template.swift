@@ -38,6 +38,15 @@ struct TemplateStore {
                     remindTime: Date()
                 )
             ),
+            Template(
+                name: "自定义",
+                event: Event(
+                    title: "",
+                    description: "坚持一周",
+                    endDate: Date(timeIntervalSinceNow: 60 * 60 * 24 * 7 + 1),
+                    remindTime: Date()
+                )
+            ),
         ]
     }
 }
