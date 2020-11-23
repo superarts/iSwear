@@ -16,7 +16,14 @@ struct EventTabView: View {
 
     private func tab(events: [Event], emptyString: String) -> AnyView {
         if events.count == 0 {
-            return AnyView(Text(emptyString))
+            return AnyView(
+                Text(
+                    emptyString
+                ).fixedSize(
+                    horizontal: false,
+                    vertical: true
+                ).multilineTextAlignment(.center)
+            )
         } else {
             return AnyView(List {
                 ForEach(events, id: \.self) { event in
@@ -47,31 +54,31 @@ struct EventTabView: View {
             TabView {
                 tab(
                     events: eventStore.ongoingEvents(),
-                    emptyString: "Tap \"Create\" to start"
+                    emptyString: s("Tap \"Create\" to start")
                 ).onAppear {
                     //UITableView.appearance().separatorColor = .clear
                 }.tabItem {
-                    Image(systemName: "phone.fill")
+                    Image(systemName: "play.fill")
                     Text("Current")
                 }
 
                 tab(
                     events: eventStore.successEvents(),
-                    emptyString: "You have no completed events yet.\nKeep going!"
+                    emptyString: s("You have no completed events yet.\nKeep going!")
                 ).onAppear {
                     //UITableView.appearance().separatorColor = .clear
                 }.tabItem {
-                    Image(systemName: "star.fill")
+                    Image(systemName: "stop.fill")
                     Text("Finished")
                 }
 
                 tab(
                     events: eventStore.failureEvents(),
-                    emptyString: "You have no failed events. Good job!"
+                    emptyString: s("failed-no-failure")
                 ).onAppear {
                     //UITableView.appearance().separatorColor = .clear
                 }.tabItem {
-                    Image(systemName: "tv.fill")
+                    Image(systemName: "exclamationmark.triangle.fill")
                     Text("Failed")
                 }
             }.navigationBarItems(trailing:
@@ -91,6 +98,9 @@ struct EventTabView: View {
 
 struct EventTabView_Previews: PreviewProvider {
     static var previews: some View {
-        EventTabView()
+        EventTabView(
+        ).environmentObject(
+            EventStore()
+        ).environment(\.locale, .init(identifier: "zh"))
     }
 }

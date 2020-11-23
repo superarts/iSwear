@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+  iSwear
+
+  Created by Leo on 11/22/20.
+  Copyright © 2020 Super Art Software. All rights reserved.
+*/
+"failed-no-failure" = "You have no failed events. Good job!";

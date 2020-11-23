@@ -8,6 +8,10 @@
 
 import Foundation
 
+func s(_ s: String) -> String {
+    NSLocalizedString(s, comment: s)
+}
+
 struct Annotation: Hashable, Codable {
     let message: String
     /// Image data

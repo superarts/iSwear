@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  iSwear
+
+  Created by Leo on 11/22/20.
+  Copyright © 2020 Super Art Software. All rights reserved.
+*/
+// Title
+"Events" = "项目";
+"Choose a template" = "选择模板";
+"Edit event" = "编辑项目";
+// Bar
+"Create" = "新建";
+"Close" = "关闭";
+"Update" = "更新";
+// Tab
+"Current" = "当前";
+"Finished" = "成功完成";
+"Failed" = "已放弃";
+
+// Main
+"Tap \"Create\" to start" = "点击“新建”按钮开始";
+"You have no completed events yet.\nKeep going!" = "你还没有成功完成过任何项目。\n继续努力！";
+"failed-no-failure" = "你没有放弃过任何项目，牛逼！";
+
+// Editor
+"CONTENTS" = "内容";
+"DURATION" = "持续时间";
+"REMINDER" = "提醒";
+
+"Starts from" = "开始时间";
+"Until" = "结束时间";
+"Remind me at" = "提醒时间";
+
+"Mark as done" = "标记为已完成";
+"Mark as failed" = "标记为已放弃";
+"Delete" = "删除";
