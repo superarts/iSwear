@@ -1,1 +1,2 @@
-leo.xcuserdatad
+*.xcuserdatad
+.DS_Store
